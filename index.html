@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GeoSoftware1 Aufgabenstellung 4</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+  <link rel="stylesheet" type="text/css" href="src/style.css">
+
+  <script src="src/point.js"></script>
+  <script src="src/haltestelle.js"></script> 
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+  <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
+
+</head>
+<body onload="onLoad()">
+
+
+  <div class="a" align="center">
+  <h1>GeoSoftware1 Aufgabenstellung 4</h1>
+
+  <div>
+  	course: Geosoftware I SoSe 2022 <br>
+  	author: Tobias Krumrein <br> <br>
+
+    Diese Seite kann einen Nutzerstandort entgegen nehmen und zeigt ihn anschließend auf der Karte an. 
+    Zudem kann man auf der Karte in einem ausgewählten Bereich sehen wo sich die nächstliegenden Bushaltestellen
+    befinden. Wenn man auf die Pointer drückt sieht man außerdem noch auf einem Popup Informationen zu der 
+    jeweiligen Bushaltestelle. 
+
+    <hr>
+    <div id="muenstersHaltestellen"></div>
+    <br>
+    current position in geojson: <br>
+    <textarea rows="2" id="userPosition"></textarea><br>
+    <button id="refreshBtn" class="button" type="button">refresh</button>
+    <button id="getLocationBtn" class="button" type="button">get user location</button>
+  </div>
+
+  <br>
+
+  <div id="geoJSON" class="script" align="center">
+  </div>
+
+  <br>
+
+  <table style="width:75%" align="center" id="resultTable">
+    <tr>
+      <th>Koordinaten</td>
+      <th>Bushaltestellenname</td>
+      <th>Richtung</td>
+      <th>Distanz (in Meter)</th>
+    </tr>
+  </table>
+
+  <p id="AbfahrtVon"> Abfahrt von:</p>
+
+  <table style="width:75%" align="center" id="resultTableAbfahrt">
+    <tr>
+      <th>Linie</td>
+      <th>Haltestelle</td>
+      <th>Richtung</td>
+      <th>Abfahrt</th>
+    </tr>
+  </table>
+  </div>
+  <script src="src/script.js"></script>
+</body>
+</html>
